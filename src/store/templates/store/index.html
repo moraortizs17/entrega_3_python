@@ -1,10 +1,18 @@
 {% extends 'store/base.html' %}
 
-{% block title %}Inicio{% endblock title %}
+{% block title %}Inicio{% endblock %}
 
-{% block  %}
+{% block content %}
+    <div class="text-center mt-4">
+        <h1 style="color: #3a2cff;">Bienvenido a Mi Tienda de Ropa</h1>
+        <p class="lead" style="color: #09157b; font-size: 1.2rem;">
+            Tu destino favorito para encontrar ropa moderna, colorida y de calidad.
+        </p>
+    </div>
 
-    <h2>Bienvenido a la tienda</h2>
-    <p>Aquí encontrarás productos de excelente calidad.</p>
-
-{% endblock  %}
+    <div class="mt-4 p-4" style="background: white; border-radius: 15px; border-left: 5px solid #12ad31;">
+        <h3 style="color: #2e0d97;">¿Qué es esta tienda?</h3>
+        <p>Esta es una tienda de ropa virtual. Aquí podrás explorar nuestro catálogo de productos, conocer nuestros clientes y revisar las órdenes que se han realizado.</p>
+        <p>Usa la barra de navegación para explorar las diferentes secciones de la tienda.</p>
+    </div>
+{% endblock %}

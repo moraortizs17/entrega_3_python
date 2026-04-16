@@ -1,0 +1,12 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Órdenes{% endblock %}
+
+{% block content %}
+    <h2>Órdenes</h2>
+    <ul>
+        {% for orden in ordenes %}
+            <li>{{ orden.cliente }} - {{ orden.producto }} | Cantidad: {{ orden.cantidad }} | Fecha: {{ orden.fecha_de_orden }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
