@@ -12,10 +12,23 @@ class Cliente(models.Model):
     def __str__(self):
         return f"{self.apellido.upper()} - {self.nombre.upper()}"
     
+class Categorias(models.Model):
+    nombre_categoria = models.CharField(max_length=100)
+    descripcion = models.TextField()
+    estado_categoria = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name_plural = "Categorias"
+
+    def __str__(self):
+        estado = "Activo" if self.estado_categoria else "Inactivo"
+        return f"{self.nombre_categoria} - {estado}"
+
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
+    categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return f"{self.nombre} | $ {self.precio}"
@@ -25,6 +38,9 @@ class Ordenes(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     fecha_de_orden = models.DateField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Ordenes"
 
     def __str__(self):
         return f"Orden de {self.cliente} - {self.producto}"
