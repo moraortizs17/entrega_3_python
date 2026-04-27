@@ -4,9 +4,21 @@
         <ul class="navbar-links">
             <li><a href="{% url 'index' %}">Inicio</a></li>
             <li><a href="{% url 'productos' %}">Productos</a></li>
-            <li><a href="{% url 'clientes' %}">Clientes</a></li>
-            <li><a href="{% url 'ordenes' %}">Órdenes</a></li>
             <li><a href="{% url 'categorias' %}">Categorías</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'clientes' %}">Clientes</a></li>
+                <li><a href="{% url 'ordenes' %}">Órdenes</a></li>
+                <li><a href="{% url 'perfil' %}">Mi perfil</a></li>
+                <li>
+                     <form method="POST" action="{% url 'logout' %}">
+                         {% csrf_token %}
+                         <button type="submit" style="background: none; border: none; color: black; font-weight: bold; cursor: pointer;">Cerrar sesión</button>
+                     </form>
+                </li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+                <li><a href="{% url 'registro' %}">Registrarse</a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>

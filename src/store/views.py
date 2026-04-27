@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Cliente, Producto, Ordenes, Categorias
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'store/index.html')
@@ -8,10 +9,12 @@ def productos(request):
     productos = Producto.objects.all()
     return render(request, 'store/productos.html', {'productos': productos})
 
+@login_required
 def clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'store/clientes.html', {'clientes': clientes})
 
+@login_required
 def ordenes(request):
     ordenes = Ordenes.objects.all()
     return render(request, 'store/ordenes.html', {'ordenes': ordenes})

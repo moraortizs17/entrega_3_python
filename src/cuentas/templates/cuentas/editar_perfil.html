@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Editar Perfil{% endblock %}
+
+{% block content %}
+    <div class="mt-4 p-4" style="background: white; border-radius: 15px; border-left: 5px solid #f72585; max-width: 500px; margin: auto;">
+        <h2>Editar Perfil</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h5 style="color: #7209b7;">Datos personales</h5>
+            {{ user_form.as_p }}
+            <h5 style="color: #7209b7;">Perfil</h5>
+            {{ perfil_form.as_p }}
+            <button type="submit" class="btn btn-primary mt-3">Guardar cambios</button>
+        </form>
+        <a href="{% url 'perfil' %}" class="btn btn-secondary mt-2">Cancelar</a>
+    </div>
+{% endblock %}

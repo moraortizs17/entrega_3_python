@@ -1,0 +1,20 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block content %}
+    <div class="mt-4 p-4" style="background: white; border-radius: 15px; border-left: 5px solid #f72585; max-width: 500px; margin: auto;">
+        <h2>Mi Perfil</h2>
+        {% if perfil.avatar %}
+            <img src="{{ perfil.avatar.url }}" alt="Avatar" style="width: 100px; border-radius: 50%;">
+        {% endif %}
+        <p><strong>Usuario:</strong> {{ perfil.usuario.username }}</p>
+        <p><strong>Nombre:</strong> {{ perfil.usuario.first_name }}</p>
+        <p><strong>Apellido:</strong> {{ perfil.usuario.last_name }}</p>
+        <p><strong>Email:</strong> {{ perfil.usuario.email }}</p>
+        <p><strong>Biografía:</strong> {{ perfil.biografia }}</p>
+        <a href="{% url 'cambiar_password' %}" class="btn btn-secondary mt-3">Cambiar la contraseña</a>
+        <a href="{% url 'editar_perfil' %}" class="btn btn-secondary mt-3">Editar perfil</a>
+        <a href="{% url 'index' %}" class="btn btn-primary mt-3">Volver al inicio</a>
+    </div>
+{% endblock %}
