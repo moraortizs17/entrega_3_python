@@ -1,0 +1,13 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Acerca de{% endblock %}
+
+{% block content %}
+    <div class="mt-4 p-4" style="background: white; border-radius: 15px; border-left: 5px solid #f72585; max-width: 600px; margin: auto;">
+        <h2>Acerca de</h2>
+        <p>Hola, soy Santiago Mora. En esta tienda podrás ver nuestro catálogo de productos, ver los colores, categorías y mucho más.</p>
+        <br>
+        <p>Además, si quieres agregar nuevas categorías y productos, no olvides registrarte primero y las opciones se te habilitarán.</p>
+        <a href="{% url 'index' %}" class="btn btn-primary mt-3">Volver</a>
+    </div>
+{% endblock %}

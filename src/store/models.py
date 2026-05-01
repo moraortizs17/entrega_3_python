@@ -1,5 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
+from ckeditor.fields import RichTextField
 
 class Cliente(models.Model):
     nombre = models.CharField(max_length=100)
@@ -29,6 +30,10 @@ class Producto(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
     categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE, null=True, blank=True)
+    marca = models.CharField(max_length=100)
+    descripcion = RichTextField()
+    foto_producto = models.ImageField(upload_to='foto_productos/',null=True, blank=True)
+    fecha_inventario = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.nombre} | $ {self.precio}"

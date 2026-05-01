@@ -5,6 +5,7 @@
             <li><a href="{% url 'index' %}">Inicio</a></li>
             <li><a href="{% url 'productos' %}">Productos</a></li>
             <li><a href="{% url 'categorias' %}">Categorías</a></li>
+            <li><a href="{% url 'about' %}">Acerca de</a></li>
             {% if request.user.is_authenticated %}
                 <li><a href="{% url 'clientes' %}">Clientes</a></li>
                 <li><a href="{% url 'ordenes' %}">Órdenes</a></li>

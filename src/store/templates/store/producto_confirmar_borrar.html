@@ -1,0 +1,14 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Borrar Producto{% endblock %}
+
+{% block content %}
+    <div class="mt-4 p-4" style="background: white; border-radius: 15px; border-left: 5px solid #f72585; max-width: 500px; margin: auto;">
+        <h2>¿Estás seguro que quieres borrar "{{ object.nombre }}"?</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger mt-3">Sí, borrar</button>
+        </form>
+        <a href="{% url 'productos' %}" class="btn btn-secondary mt-2">Cancelar</a>
+    </div>
+{% endblock %}
