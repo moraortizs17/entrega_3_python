@@ -10,6 +10,7 @@
                 <li><a href="{% url 'clientes' %}">Clientes</a></li>
                 <li><a href="{% url 'ordenes' %}">Órdenes</a></li>
                 <li><a href="{% url 'perfil' %}">Mi perfil</a></li>
+                <li><a href="{% url 'recibidos' %}">Mensajes</a></li>
                 <li>
                      <form method="POST" action="{% url 'logout' %}">
                          {% csrf_token %}

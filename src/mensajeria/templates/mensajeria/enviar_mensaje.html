@@ -1,0 +1,15 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Enviar Mensaje{% endblock %}
+
+{% block content %}
+    <div class="mt-4 p-4" style="background: white; border-radius: 15px; border-left: 5px solid #f72585; max-width: 500px; margin: auto;">
+        <h2>Enviar Mensaje</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+        </form>
+        <a href="{% url 'recibidos' %}" class="btn btn-secondary mt-2">Cancelar</a>
+    </div>
+{% endblock %}

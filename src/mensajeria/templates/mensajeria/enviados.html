@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Mensajes Enviados{% endblock %}
+
+{% block content %}
+    <div class="mt-4 p-4" style="background: white; border-radius: 15px; border-left: 5px solid #f72585;">
+        <h2>Mensajes Enviados</h2>
+        <a href="{% url 'enviar_mensaje' %}" class="btn btn-primary mb-3">+ Enviar mensaje</a>
+        <ul>
+            {% for mensaje in mensajes_enviados %}
+                <li>
+                    <strong>Para:</strong> {{ mensaje.destinatario }} |
+                    <strong>Fecha:</strong> {{ mensaje.fecha }} <br>
+                    {{ mensaje.contenido }}
+                </li>
+            {% empty %}
+                <p>No tienes mensajes enviados.</p>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'recibidos' %}" class="btn btn-secondary mt-3">Ver recibidos</a>
+    </div>
+{% endblock %}
